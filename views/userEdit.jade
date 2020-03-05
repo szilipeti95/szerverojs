@@ -1,7 +1,13 @@
 extends layout
 
 block content
-  img(src="./imagy.webp", alt="")
+  div
+      a(href="/") Go Home
+
+  img(class="icon" src="./imagy.webp", alt="")
+  p Username
+  p Like Count
+  a(href="/user_edit") edit
   
   h1= title
   p Welcome to #{title}
@@ -14,5 +20,3 @@ block content
       input(type="text", name="re-password", placeholder="Re-enter Password")
     div
       input(type="submit", value="Register")
-  div
-    a(href="/") Go Back

@@ -1,8 +1,92 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #4b382a;
+  color: white;
+  align-content: center;
+}
+
+.pinned-icon {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.pinned-user {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  width: 50px;
+  height: auto;
+}
+
+.icon {
+  width: 30%;
+  height: auto;
 }
 
 a {
   color: #00B7FF;
+}
+
+.content {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.right {
+  width: 100%;
+  text-align: left;
+}
+
+.block {
+  display: inline-block;
+}
+
+.input-container {
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label {
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	transition: all 0.5s ease-in-out;
+  z-index: -1;
+}
+.input-container input { 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  color: white;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid lightblue;	
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+	top:-12px;
+	font-size:12px;
+}
+
+.btn {
+  width: 200px;
+  height: 40px;
+  background-color: green;
+  border: 0;
+  font-size: 16px;
+  border-style: none;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
 }
