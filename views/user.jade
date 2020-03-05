@@ -1,9 +1,13 @@
 extends layout
 
 block content
-  div(class="right")
-    img(class="icon" src="./imagy.webp", alt="")
-    div(class="block")
-      p Username
-      p Like Count
-      a(href="/user_edit") edit profile
+  - var username = "Username"
+  - var like_count = "Like Count"
+  - var show_edit = true
+
+  include ./userHeader.jade
+
+  .title
+    h1 Your Albums
+    img(src="./add_button.png", alt="")
+

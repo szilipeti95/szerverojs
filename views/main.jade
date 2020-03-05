@@ -3,14 +3,11 @@ extends layout
 block content
   div
     img(class="pinned-icon" src="./imagy.webp", alt="")
+  include ./pinnedUser.jade
     
-    
-    div(class="input-container")
-      input(type="text", name="password" placeholder="search...")
+  div(class="input-container")
+    input(type="text", name="search_field" placeholder="search...")
 
-
-    div(class="pinned-user")
-      img(class="icon" src="./imagy.webp", alt="")
-      a(style='white-space:pre;' href="/user") 
-        | Profile 
-        | (or login)
+  div
+    each album in albums
+      h1=album.id
