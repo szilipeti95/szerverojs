@@ -142,6 +142,7 @@ a {
   border-color: black;
   margin-top: 8px;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 
 .album img {

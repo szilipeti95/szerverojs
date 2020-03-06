@@ -5,5 +5,9 @@ $( document ).ready(function() {
         }else{
             $(this).addClass('active');
         }
-    });    
+    });
+    
+    $ (".album").click(function() {
+        document.location.href = $(this).attr("ref");
+    })
 });

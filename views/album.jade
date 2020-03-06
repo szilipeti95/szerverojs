@@ -1,10 +1,13 @@
-.album
-  img(src="./no_image_placeholder.png", alt="")
+extends layout
+
+block content
+  - var username = "Username"
+  - var like_count = "Like Count"
+  - var show_edit = true
+
+  include ./userHeader.jade
+
   .title
-    h1 title
-    .heart-button.heart
-  .title(style="margin-top: 50px")
-    div
-      p Author
-      p Creation Date
-    p Like Count
+    h1 Your Albums
+    img(src="./add_button.png", alt="")
+
