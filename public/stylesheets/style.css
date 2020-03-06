@@ -4,10 +4,6 @@
   --main-backcolor:#D8B99C;
 }
 
-#foo {
-  color: var(--main-color);
-}
-
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -85,7 +81,6 @@ a {
 .title img {
   width: auto;
   height: 50px;
-  filter: invert(1);
 }
 
 .block {
