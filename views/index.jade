@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  img(class="icon" src="./imagy.webp", alt="")
+  img(class="icon" src="./camera-icon.svg", alt="")
   
   h1= title
   p Welcome to #{title}
@@ -14,7 +14,7 @@ block content
       input(type="text", name="password" required="")
       label Password
     div
-      input(class="btn" type="submit", value="Login")
+      input(class="input-button" type="submit", value="Login")
   div
     a(href="/forgotten_password") Forgotten password
   div

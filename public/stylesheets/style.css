@@ -1,8 +1,18 @@
+:root {
+  --main-color: #7E4E04;
+  --main-secondary-color:#b08864;
+  --main-backcolor:#D8B99C;
+}
+
+#foo {
+  color: var(--main-color);
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #4b382a;
-  color: white;
+  background-color: var(--main-backcolor);
+  color: var(--main-color);
   align-content: center;
 }
 
@@ -37,7 +47,9 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: var(--main-color);
+  display: inline-block;
+  padding-top: 10px;
 }
 
 .content {
@@ -77,6 +89,7 @@ a {
 }
 
 .block {
+  position: relative;
   margin-left: 30px;
   display: inline-block;
   vertical-align: top;
@@ -84,13 +97,14 @@ a {
 
 .input-container {
 	position:relative;
-	margin-bottom:25px;
+  margin-bottom:25px;
+  z-index: 2;
 }
 .input-container label {
 	position:absolute;
 	top:0px;
 	left:0px;
-	font-size:16px;
+  font-size:16px;
 	transition: all 0.5s ease-in-out;
   z-index: -1;
 }
@@ -98,15 +112,17 @@ a {
   border:0;
   border-bottom:1px solid #555;  
   background:transparent;
-  color: white;
+  color: var(--main-color);
   width:100%;
   padding:8px 0 5px 0;
   font-size:16px;
+  z-index: 100;
 }
+
 .input-container input:focus{ 
  border:none;	
  outline:none;
- border-bottom:1px solid lightblue;	
+ border-bottom:1px solid var(--main-secondary-color);	
 }
 
 .input-container input:focus ~ label,
@@ -115,20 +131,8 @@ a {
 	font-size:12px;
 }
 
-.btn {
-  width: 200px;
-  height: 40px;
-  background-color: green;
-  border: 0;
-  font-size: 16px;
-  border-style: none;
-  color: white;
-  padding: 8px;
-  border-radius: 8px;
-}
-
 .album {
-  background-color: gray;
+  background-color: var(--main-secondary-color);
   padding: 10px;
   display: inline-block;
   overflow: hidden;
@@ -158,4 +162,96 @@ a {
 
 .album h1 {
   display: inline-block;
+}
+
+.grid-view {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  text-align: left;
+}
+
+.grid-item {
+  position: relative;
+  width: 33%;
+  height: auto;
+  line-height: 0;
+  float: left;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.grid-item-title {
+  position: absolute;
+  width: calc(100% - 32px);
+  height: auto;
+  bottom: 0px;
+  left: 0px;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  color: var(--main-color);
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: var(--main-backcolor);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+}
+
+#image-presenter {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.input-button,
+.rounded-button {
+  background-color: var(--main-color);
+  color: var(--main-backcolor);
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.rounded-button {
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.input-button {
+  width: 200px;
+  height: 40px;
+  border: 0;
+  border-style: none;
+  padding: 8px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.bottom {
+  display: absolute;
+  bottom: 0;
+  left: 0;
 }

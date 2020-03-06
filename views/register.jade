@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  img(class="icon" src="./imagy.webp", alt="")
+  img(class="icon" src="./camera-icon.svg", alt="")
   
   h1= title
   p Register to Imagy
@@ -19,6 +19,6 @@ block content
       input(type="text", name="repassword" required="")
       label Re-enter Password
     div
-      input(class="btn" type="submit", value="Register")
+      input(class="input-button" type="submit", value="Register")
   
   a( href="/") Go Back

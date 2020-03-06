@@ -3,6 +3,6 @@ div(class="right")
   div(class="block")
     p #{username}
     p #{like_count}
-    if show_edit
-      a(href="/user_edit") edit profile
+  if show_edit
+    div(class="rounded-button bottom" ref="/user_edit") edit profile
 

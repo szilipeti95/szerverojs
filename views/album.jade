@@ -1,13 +1,22 @@
 extends layout
 
 block content
-  - var username = "Username"
-  - var like_count = "Like Count"
-  - var show_edit = true
+  - var username = "Author"
+  - var like_count = "Like Count On Album"
+  - var show_edit = false
 
   include ./userHeader.jade
 
   .title
-    h1 Your Albums
-    img(src="./add_button.png", alt="")
+    h1 Album name
+    img(id="uploadButton" src="../add_button.png", alt="")
+  
+  .grid-view
+    each image in images
+      include ./itemView.jade
+
+  #uploadModal.modal
+    .modal-content
+      include ./uploadImage.jade
+</div>
 
