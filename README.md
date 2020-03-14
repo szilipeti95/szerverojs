@@ -44,7 +44,7 @@ A feladat egy Instagramhoz hasonló online képgaléria megvalósítása. Képek
 
 ![login](./images/login.png)
 
-![főoldal](./images/főoldal.png)
+![főoldal](./images/fooldal.png)
 
 ![profil](./images/profil.png)
 
