@@ -9,6 +9,7 @@ const unlikeAlbumMW = require('../middlewares/album/unlikeAlbum');
 
 const authMW = require('../middlewares/auth/auth');
 const checkPasswordMW = require('../middlewares/auth/checkPassword');
+const logoutMW = require('../middlewares/auth/logout');
 const handlePasswordResetMW = require('../middlewares/auth/handlePasswordReset');
 const registerMW = require('../middlewares/auth/register');
 
@@ -24,6 +25,17 @@ const getUserMW = require('../middlewares/user/getUser');
 const renderMW = require('../middlewares/render');
 
 module.exports = function (app) {
+
+  app.post(
+    '/logout',
+    logoutMW(objectRepository)
+  )
+
+  app.post(
+    '/login',
+    checkPasswordMW(objectRepository)
+  )
+
   app.use(
     '/user_edit',
     authMW(objectRepository),
