@@ -1,5 +1,5 @@
 /*
- *
+ * Load all albums stored in the database
  */
 
 module.exports = function (objectrepository) {

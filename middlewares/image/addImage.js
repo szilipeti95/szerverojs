@@ -1,5 +1,5 @@
 /*
- *
+ * Add image uploaded in multipart form
  */
 
 module.exports = function (objectrepository) {

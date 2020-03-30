@@ -1,5 +1,5 @@
 /*
- *
+ * Deletes an album of the user
  */
 
 module.exports = function (objectrepository) {
