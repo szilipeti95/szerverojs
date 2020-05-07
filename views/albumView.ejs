@@ -6,7 +6,13 @@
   <% } %>
   <div class="title">
     <h1> <%= album.name %> </h1>
-      <div id="heart-button" class="heart"></div>
+      <% if (authenticatedUser != "guest") { %>
+        <% if (album.isLiked) { %>
+          <div id="heart-button" class="heart active"></div>
+        <% } else { %>
+          <div id="heart-button" class="heart"></div>
+        <% } %>
+      <% } %>
   </div>
   <div class="title" style="margin-top: 50px">
     <div>
