@@ -12,7 +12,7 @@ block content
     img(id="uploadButton" src="../add_button.png", alt="")
 
   .grid-view
-    each album in albums
+    each album in objectrepository
       include ./itemView.jade
 
   #uploadModal.modal
