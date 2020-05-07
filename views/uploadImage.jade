@@ -1,8 +1,0 @@
-h1 Add Image
-form(name="add-estimation", method="post")
-    label(for="file-upload" class="rounded-button")
-        i Upload Image
-    input(id="file-upload" type="file" accept="image/*" name="image" required="" onchange="readURL(this);")
-    img(id="image-presenter" src="../no_image_placeholder.png" alt="image")
-    div
-        input(class="input-button" type="submit", value="Add Image")
