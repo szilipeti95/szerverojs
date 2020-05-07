@@ -1,4 +1,4 @@
-<div class="album" ref="/album/#{album.id}">
+<div class="album" ref="/album/<%= album.id %>">
   <% if (typeof(album.thumbnailUri) !== 'undefined' && album.thumbnailUri != null) { %>
     <img src="#{album.thumbnailUri}" alt="" />
   <% } else { %>
@@ -6,7 +6,7 @@
   <% } %>
   <div class="title">
     <h1> <%= album.name %> </h1>
-      <div class="heart-button.heart"></div>
+      <div id="heart-button" class="heart"></div>
   </div>
   <div class="title" style="margin-top: 50px">
     <div>
