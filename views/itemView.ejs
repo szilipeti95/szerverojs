@@ -1,0 +1,27 @@
+<% if (typeof(image) !== 'undefined') { %>
+  <% if (typeof(image.imageUri) !== 'undefined' && image.imageUri != null) { %>
+    <div class="grid-item">
+      <img src="<%= image.imageUri %>", alt="") />
+    </div>
+  <% } else { %> 
+    <div class="grid-item">
+      <img src="../no_image_placeholder.png", alt="") />
+    </div>
+  <% } %>
+<% } else if (typeof(album) !== 'undefined') { %>
+  <% if (typeof(album.thumbnailUri) !== 'undefined' && album.thumbnailUri != null) { %>
+    <div class="grid-item" style="cursor: pointer;" ref="/album/<%= album.id %>">
+      <img src="<%= album.thumbnailUri %>", alt="" />
+      <% if (album.name) { %>
+        <p class="grid-item-title"> <%= album.name %> </p>
+      <% } %>
+    </div>
+  <% } else {  %>
+    <div class="grid-item" style="cursor: pointer;" ref="/album/<%= album.id %>">
+      <img src="../no_image_placeholder.png", alt=""/>
+      <% if (album.name) { %>
+        <p class="grid-item-title"> <%= album.name %> </p>
+      <% } %>
+    </div>
+  <% } %>
+<% } %>  

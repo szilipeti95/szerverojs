@@ -1,0 +1,19 @@
+<%- include('layout') -%>
+
+<div>
+  <img class="pinned-icon" src="./camera-icon.svg" alt="" />
+</div>
+
+<%- include('pinnedUser') -%>
+  
+<div class="input-container">
+  <input type="text" name="search_field" placeholder="search..." />
+</div>
+
+<div>
+  <% objectrepository.forEach(function(album) { %>
+    <%- include('albumView', {album: album}); -%>
+  <% }); %>
+</div>
+
+<%- include('footer') -%>

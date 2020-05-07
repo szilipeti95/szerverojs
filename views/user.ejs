@@ -1,0 +1,20 @@
+<%- include('layout') -%>
+
+<%- include('userHeader', { show_edit: true, username: "Teszt user", like_count: 30 } ) -%>
+
+<div class="title">
+  <h1> Your Albums </h1>
+  <img id="uploadButton" src="../add_button.png" alt="" />
+</div>
+<div class="grid-view">
+  <% objectrepository.forEach(function(album) { %>
+    <%- include('itemView', {album: album}); -%>
+  <% }); %>
+</div>
+<div id="uploadModal" class="modal">
+  <div class="modal-content">
+    <%- include('uploadAlbum') -%>
+  </div>
+</div>
+
+<%- include('footer') -%>
