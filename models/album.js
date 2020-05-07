@@ -17,7 +17,10 @@ const Album = db.model('Album', {
     },
     creationDate: Number,
     public: Boolean,
-    images: [String],
+    images: [{ 
+      url: String,
+      mimeType: String
+     }],
     tags: [String]
   })
 

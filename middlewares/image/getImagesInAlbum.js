@@ -14,6 +14,7 @@ module.exports = function(objectrepository) {
             }
             console.log(album);
             res.locals.images = album.images;
+            res.locals.albumId = album._id;
             return next();
         });
     };

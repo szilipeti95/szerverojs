@@ -28,6 +28,9 @@ const UserModel = require('../models/user');
 const AlbumModel = require('../models/album');
 const UserAlbumLikesModel = require('../models/userAlbumLikes');
 
+const multer = require('multer');
+const upload = multer({ dest: './uploads/', });
+
 module.exports = function (app) {
   const objectRepository = {
     UserModel: UserModel,
@@ -66,6 +69,21 @@ module.exports = function (app) {
     '/album/:albumId/unlike',
     authMW(objectRepository),
     unlikeAlbumMW(objectRepository)
+  )
+
+  app.post(
+    '/image/add/:albumId',
+    authMW(objectRepository),
+    upload.single('image'),
+    addImageMW(objectRepository)
+  )
+
+  app.get(
+    '/image/file/:uri',
+    function(req, res) {
+      var path = require('path');
+      res.sendFile(path.resolve('./uploads/'+req.params.uri));
+    }
   )
 
   app.get(
