@@ -17,7 +17,7 @@
   <div class="title" style="margin-top: 50px">
     <div>
       <p> <%= album.author %> </p>
-      <p> <%= album.creationDate %> </p>
+      <p> <%= new Date(album.creationDate).toDateString(); %> </p>
     </div>
     <p> Like Count: <%= album.likeCount %> </p>
   </div>
