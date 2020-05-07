@@ -7,7 +7,7 @@
   <img id="uploadButton" src="../add_button.png" alt="" />
 </div>
 <div class="grid-view">
-  <% objectrepository.forEach(function(album) { %>
+  <% userAlbums.forEach(function(album) { %>
     <%- include('itemView', {album: album}); -%>
   <% }); %>
 </div>

@@ -21,10 +21,18 @@ const editPasswordMW = require('../middlewares/user/editPassword');
 const editUserMW = require('../middlewares/user/editUser');
 const getUserMW = require('../middlewares/user/getUser');
 
-
 const renderMW = require('../middlewares/render');
 
+const UserModel = require('../models/user');
+const AlbumModel = require('../models/album');
+const UserAlbumLikesModel = require('../models/userAlbumLikes');
+
 module.exports = function (app) {
+  const objectRepository = {
+    UserModel: UserModel,
+    AlbumModel: AlbumModel,
+    UserAlbumLikesModel: UserAlbumLikesModel
+  };
 
   app.post(
     '/logout',
@@ -45,13 +53,15 @@ module.exports = function (app) {
   app.use(
     '/user',
     authMW(objectRepository),
-    renderMW(userAlbums, 'user')
+    getOwnAlbumsMW(objectRepository),
+    renderMW(objectRepository, 'user')
   );
 
   app.use(
     '/album/:albumId',
     authMW(objectRepository),
-    renderMW(images, 'album')
+    getImagesInAlbumMW(objectRepository),
+    renderMW(objectRepository, 'album')
   );
 
   app.use(
@@ -69,7 +79,8 @@ module.exports = function (app) {
   app.use(
     '/main',
     authMW(objectRepository),
-    renderMW(albums, 'main')
+    getAllAlbumsMW(objectRepository),
+    renderMW(objectRepository, 'main')
   );
 
   app.use(
@@ -78,84 +89,3 @@ module.exports = function (app) {
     renderMW(objectRepository, 'index')
   );
 };
-
-const objectRepository = {
-
-};
-
-const albums = [{
-  id: 1,
-  name: "Name1",
-  author: "Author1",
-  likeCount: 1,
-  isLiked: false,
-  isPublic: true,
-  tags: ["tag1", "tag2"],
-  creationDate: 1
-}, {
-  id: 2,
-  name: "Name2",
-  author: "Author2",
-  likeCount: 2,
-  isLiked: true,
-  isPublic: true,
-  thumbnailUri: null,
-  tags: ["tag1", "tag3"],
-  creationDate: 2
-}];
-
-var images = [{
-  id: 1,
-  imageUri: null,
-}, {
-  id: 2,
-  imageUri: null,
-}, {
-  id: 3,
-  imageUri: null,
-}, {
-  id: 4,
-  imageUri: null,
-}];
-
-
-const userAlbums = [{
-  id: 1,
-  name: "Name1",
-  author: "Author1",
-  likeCount: 1,
-  isLiked: false,
-  isPublic: true,
-  tags: ["tag1", "tag2"],
-  creationDate: 1
-}, {
-  id: 2,
-  name: "Name2",
-  author: "Author2",
-  likeCount: 2,
-  isLiked: true,
-  isPublic: true,
-  thumbnailUri: null,
-  tags: ["tag1", "tag3"],
-  creationDate: 2
-}, {
-  id: 3,
-  name: "Name2",
-  author: "Author2",
-  likeCount: 2,
-  isLiked: true,
-  isPublic: true,
-  thumbnailUri: null,
-  tags: ["tag1", "tag3"],
-  creationDate: 2
-}, {
-  id: 4,
-  name: "Name2",
-  author: "Author2",
-  likeCount: 2,
-  isLiked: true,
-  isPublic: true,
-  thumbnailUri: null,
-  tags: ["tag1", "tag3"],
-  creationDate: 2
-}];
