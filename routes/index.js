@@ -21,10 +21,18 @@ const editPasswordMW = require('../middlewares/user/editPassword');
 const editUserMW = require('../middlewares/user/editUser');
 const getUserMW = require('../middlewares/user/getUser');
 
-
 const renderMW = require('../middlewares/render');
 
+const UserModel = require('../models/user');
+const AlbumModel = require('../models/album');
+const UserAlbumLikesModel = require('../models/userAlbumLikes');
+
 module.exports = function (app) {
+  const objectRepository = {
+    UserModel: UserModel,
+    AlbumModel: AlbumModel,
+    UserAlbumLikesModel: UserAlbumLikesModel
+  };
 
   app.post(
     '/logout',
@@ -69,7 +77,8 @@ module.exports = function (app) {
   app.use(
     '/main',
     authMW(objectRepository),
-    renderMW(albums, 'main')
+    getAllAlbumsMW(objectRepository),
+    renderMW(objectRepository, 'main')
   );
 
   app.use(
@@ -77,10 +86,6 @@ module.exports = function (app) {
     authMW(objectRepository),
     renderMW(objectRepository, 'index')
   );
-};
-
-const objectRepository = {
-
 };
 
 const albums = [{
