@@ -17,6 +17,7 @@ module.exports = function (objectrepository) {
         console.log("Checking user for url: " + req.originalUrl + " with cookie: " + cookies["authenticatedUser"]);
         var authenticatedUser = cookies["authenticatedUser"];
         res.locals.authenticatedUser = authenticatedUser;
+        req.authenticatedUser = authenticatedUser;
         if (req.originalUrl == "/") {
             if (authenticatedUser !== "null") {
                 console.log("redirect...");
