@@ -45,6 +45,18 @@ module.exports = function (app) {
     checkPasswordMW(objectRepository)
   )
 
+  app.post(
+    '/album/:albumId/like',
+    authMW(objectRepository),
+    likeAlbumMW(objectRepository)
+  )
+
+  app.post(
+    '/album/:albumId/unlike',
+    authMW(objectRepository),
+    unlikeAlbumMW(objectRepository)
+  )
+
   app.get(
     '/guest',
     authenticateGuestMW(objectRepository)
@@ -63,7 +75,7 @@ module.exports = function (app) {
     renderMW(objectRepository, 'user')
   );
 
-  app.use(
+  app.get(
     '/album/:albumId',
     authMW(objectRepository),
     getImagesInAlbumMW(objectRepository),
