@@ -3,7 +3,7 @@
  * If the password is correct redirect to /main
  */
 
-const requireOption = require('../requireOption')
+const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
     const UserModel = requireOption(objectrepository, 'UserModel');

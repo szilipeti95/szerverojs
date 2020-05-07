@@ -2,6 +2,12 @@
  * Check if user is authenticated
  */
 
+const unauthenticatedUrls = [
+    "/",
+    "/forgotten_password",
+    "/register"
+]
+
 module.exports = function (objectrepository) { 
     return function (req, res, next) {
         //https://stackoverflow.com/questions/51812422/node-js-how-can-i-get-cookie-value-by-cookie-name-from-request/51812642
@@ -18,7 +24,7 @@ module.exports = function (objectrepository) {
         var authenticatedUser = cookies["authenticatedUser"];
         res.locals.authenticatedUser = authenticatedUser;
         req.authenticatedUser = authenticatedUser;
-        if (req.originalUrl == "/") {
+        if (unauthenticatedUrls.includes(req.originalUrl)) {
             if (authenticatedUser !== "null") {
                 console.log("redirect...");
                 res.redirect('/main');

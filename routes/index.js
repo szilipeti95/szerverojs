@@ -46,6 +46,11 @@ module.exports = function (app) {
   )
 
   app.post(
+    '/register',
+    registerMW(objectRepository)
+  )
+
+  app.post(
     '/album/:albumId/like',
     authMW(objectRepository),
     likeAlbumMW(objectRepository)
