@@ -1,0 +1,37 @@
+<%- include('layout') -%>
+
+<%- include('userHeader', { show_edit: false, username: "Teszt user", like_count: 30 } ) -%>
+
+<form name="" method="post">
+  <div class="input-container">
+    <input type="text" name="email" required="" />
+    <label> Email </label>
+  </div>
+  <div class="input-container">
+    <input type="text" name="username" required="" />
+    <label> Username </label>
+  </div>
+  <div>
+    <input class="input-button" type="submit" value="Edit" />
+  </div>
+</form>
+
+<form name="" method="post">
+  <div class="input-container">
+    <input type="text" name="old_password" required="" />
+    <label> Old Password </label>
+  </div>
+  <div class="input-container">
+    <input type="text" name="new_password" required="" />
+    <label> New Password </label>
+  </div>
+  <div class="input-container">
+    <input type="text" name="new_repassword" required="" />
+    <label> Re-enter New Password </label> 
+  </div>
+  <div>
+    <input class="input-button" type="submit" value="Change password" />
+  </div>
+</form>
+
+<%- include('footer') -%>
