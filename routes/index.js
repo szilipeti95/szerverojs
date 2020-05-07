@@ -53,13 +53,15 @@ module.exports = function (app) {
   app.use(
     '/user',
     authMW(objectRepository),
-    renderMW(userAlbums, 'user')
+    getOwnAlbumsMW(objectRepository),
+    renderMW(objectRepository, 'user')
   );
 
   app.use(
     '/album/:albumId',
     authMW(objectRepository),
-    renderMW(images, 'album')
+    getImagesInAlbumMW(objectRepository),
+    renderMW(objectRepository, 'album')
   );
 
   app.use(
@@ -87,80 +89,3 @@ module.exports = function (app) {
     renderMW(objectRepository, 'index')
   );
 };
-
-const albums = [{
-  id: 1,
-  name: "Name1",
-  author: "Author1",
-  likeCount: 1,
-  isLiked: false,
-  isPublic: true,
-  tags: ["tag1", "tag2"],
-  creationDate: 1
-}, {
-  id: 2,
-  name: "Name2",
-  author: "Author2",
-  likeCount: 2,
-  isLiked: true,
-  isPublic: true,
-  thumbnailUri: null,
-  tags: ["tag1", "tag3"],
-  creationDate: 2
-}];
-
-var images = [{
-  id: 1,
-  imageUri: null,
-}, {
-  id: 2,
-  imageUri: null,
-}, {
-  id: 3,
-  imageUri: null,
-}, {
-  id: 4,
-  imageUri: null,
-}];
-
-
-const userAlbums = [{
-  id: 1,
-  name: "Name1",
-  author: "Author1",
-  likeCount: 1,
-  isLiked: false,
-  isPublic: true,
-  tags: ["tag1", "tag2"],
-  creationDate: 1
-}, {
-  id: 2,
-  name: "Name2",
-  author: "Author2",
-  likeCount: 2,
-  isLiked: true,
-  isPublic: true,
-  thumbnailUri: null,
-  tags: ["tag1", "tag3"],
-  creationDate: 2
-}, {
-  id: 3,
-  name: "Name2",
-  author: "Author2",
-  likeCount: 2,
-  isLiked: true,
-  isPublic: true,
-  thumbnailUri: null,
-  tags: ["tag1", "tag3"],
-  creationDate: 2
-}, {
-  id: 4,
-  name: "Name2",
-  author: "Author2",
-  likeCount: 2,
-  isLiked: true,
-  isPublic: true,
-  thumbnailUri: null,
-  tags: ["tag1", "tag3"],
-  creationDate: 2
-}];
