@@ -1,7 +1,7 @@
 /*
  * Load all albums stored in the database
  */
-const requireOption = require('../requireOption')
+const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
     const AlbumModel = requireOption(objectrepository, 'AlbumModel');
