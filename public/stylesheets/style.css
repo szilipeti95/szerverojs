@@ -30,6 +30,7 @@ body {
 
 .pinned-user {
   position: fixed;
+  display: grid;
   right: 20px;
   top: 20px;
   width: 150px;

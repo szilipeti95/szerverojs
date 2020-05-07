@@ -1,5 +1,9 @@
 <div class="pinned-user">
     <img src="./user_placeholder.png" alt="" />
-    <a href="/user"> Profile (or guest) </a>
+    <% if  (authenticatedUser != "guest") { %> 
+        <a href="/user"> Profile </a>
+    <% } else { %> 
+        <p> Guest </p>
+    <% } %>
     <a href="/logout"> Logout </a>
 </div>
