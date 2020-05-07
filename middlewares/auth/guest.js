@@ -1,10 +1,10 @@
 /*
- * Deletes user's session
+ * Add Guest session
  */
 
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        res.cookie('authenticatedUser', "null");
+        res.cookie('authenticatedUser', "guest");
         return next();
     };
 };
