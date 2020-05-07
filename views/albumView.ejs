@@ -8,9 +8,9 @@
     <h1> <%= album.name %> </h1>
       <% if (authenticatedUser != "guest") { %>
         <% if (album.isLiked) { %>
-          <div id="heart-button" class="heart active"></div>
+          <div class="heart-button heart active" album="<%= album.id %>"></div>
         <% } else { %>
-          <div id="heart-button" class="heart"></div>
+          <div class="heart-button heart" album="<%= album.id %>"></div>
         <% } %>
       <% } %>
   </div>

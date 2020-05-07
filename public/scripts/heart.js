@@ -1,10 +1,14 @@
 $( document ).ready(function() {
-    $( ".heart-button" ).click(function() {
+    $( ".heart-button" ).click(function(event) {
+        var albumId = $(this).attr("album");
         if ($(this).hasClass('active')){
             $(this).removeClass('active');
+            $.post(`/album/${albumId}/unlike`);
         }else{
             $(this).addClass('active');
+            $.post(`/album/${albumId}/like`);
         }
+        event.stopPropagation();
     });
     
     $ (".album").click(function() {
