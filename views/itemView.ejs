@@ -11,7 +11,7 @@
 <% } else if (typeof(album) !== 'undefined') { %>
   <% if (typeof(album.thumbnailUri) !== 'undefined' && album.thumbnailUri != null) { %>
     <div class="grid-item" style="cursor: pointer;" ref="/album/<%= album.id %>">
-      <img src="<%= album.thumbnailUri %>", alt="" />
+      <img src="/image/file/<%= album.thumbnailUri %>", alt="" />
       <% if (album.name) { %>
         <p class="grid-item-title"> <%= album.name %> </p>
       <% } %>
