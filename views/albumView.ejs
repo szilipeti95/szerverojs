@@ -1,6 +1,6 @@
 <div class="album" ref="/album/<%= album.id %>">
   <% if (typeof(album.thumbnailUri) !== 'undefined' && album.thumbnailUri != null) { %>
-    <img src="#{album.thumbnailUri}" alt="" />
+    <img src="<%= album.thumbnailUri %>" alt="" />
   <% } else { %>
     <img src="./no_image_placeholder.png" alt="" />
   <% } %>
