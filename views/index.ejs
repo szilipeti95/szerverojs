@@ -1,0 +1,32 @@
+<%- include('layout') -%>
+
+<img class="icon" src="./camera-icon.svg", alt="" />
+  
+<h1>title</h1>
+<p> Welcome to #{title} </p>
+
+<form name="add-estimation" method="post">
+  <div class="input-container">
+    <input type="text" name="username" required="" />
+    <label> Username </label>
+  </div>
+  <div class="input-container">
+    <input type="text" name="password" required="" />
+    <label> Password </label> 
+  </div>
+  <div>
+    <input class="input-button" type="submit" value="Login" />
+  </div>
+</form>
+
+<div>
+  <a href="/forgotten_password"> Forgotten password </a>
+</div>
+<div>
+  <a href="/register"> Register </a>
+</div>
+<div>
+  <a href="/main"> Continue without login </a>
+</div>
+
+<%- include('footer') -%>
