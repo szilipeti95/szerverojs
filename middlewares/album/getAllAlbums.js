@@ -15,10 +15,14 @@ module.exports = function (objectrepository) {
             }
             var albums = albumResult.map(function(album) {
                 var isLiked = false;
-                var likeCount = 0;                
+                var likeCount = 0;
+                var thumbnailUri = null;
                 if (typeof album._likes !== "undefined") {
                     isLiked = album._likes.includes(authenticatedUser);     
                     likeCount = album._likes.length;           
+                }
+                if (typeof album.images !== "undefined" && album.images.length > 0) {
+                    thumbnailUri = album.images[Math.floor(Math.random()*album.images.length)].url;
                 }
                 return {
                     id: album._id,
@@ -28,6 +32,7 @@ module.exports = function (objectrepository) {
                     isLiked: isLiked,
                     isPublic: album.public,
                     tags: album.tags,
+                    thumbnailUri: thumbnailUri,
                     creationDate: album.creationDate
                 }
             });
