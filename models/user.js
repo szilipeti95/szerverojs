@@ -14,6 +14,10 @@ const User = db.model('User', {
       type: String,
       required: true
     },
+    _likedAlbum: {
+      type: [Schema.Types.ObjectId],
+      ref: 'Album'
+    },
     imageUri: String
   })
 
