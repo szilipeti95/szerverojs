@@ -1,6 +1,6 @@
 <%- include('layout') -%>
 
-<%- include('userHeader', { show_edit: false, username: "Teszt user", like_count: 30 } ) -%>
+<%- include('userHeader', { show_edit: false, username: currentUser.username, like_count: currentUser._likedAlbum.length } ) -%>
 
 <form name="" method="post">
   <div class="input-container">
