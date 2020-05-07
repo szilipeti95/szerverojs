@@ -65,6 +65,7 @@ module.exports = function (app) {
   app.use(
     '/user_edit',
     authMW(objectRepository),
+    getUserMW(objectRepository),
     renderMW(objectRepository, 'userEdit')
   );
 
