@@ -26,7 +26,6 @@ const renderMW = require('../middlewares/render');
 
 const UserModel = require('../models/user');
 const AlbumModel = require('../models/album');
-const UserAlbumLikesModel = require('../models/userAlbumLikes');
 
 const multer = require('multer');
 const upload = multer({ dest: './uploads/', });
@@ -35,7 +34,6 @@ module.exports = function (app) {
   const objectRepository = {
     UserModel: UserModel,
     AlbumModel: AlbumModel,
-    UserAlbumLikesModel: UserAlbumLikesModel
   };
 
   app.get(
