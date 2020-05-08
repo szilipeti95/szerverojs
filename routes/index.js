@@ -107,9 +107,15 @@ module.exports = function (app) {
   );
 
   app.post(
-    '/user/edit',
+    '/edit/user',
     authMW(objectRepository),
     editUserMW(objectRepository)
+  )
+
+  app.post(
+    '/edit/password',
+    authMW(objectRepository),
+    editPasswordMW(objectRepository)
   )
 
   app.get(

@@ -9,7 +9,7 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         UserModel.findOne({ username: req.params.username }, (userExistsError, existingUser) => {            
             if (userExistsError) {
-                return next(userExistsErąror);
+                return next(userExistsError);
             }
             if (existingUser != null && existingUser._id != req.authenticatedUser) {
                 res.status(400);
