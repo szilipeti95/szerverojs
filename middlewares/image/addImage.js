@@ -10,15 +10,24 @@ module.exports = function (objectrepository) {
         console.log(req.file.filename);
         AlbumModel.findOne( {_id: req.params.albumId}, (err, album) => {
             if(err) {
+                console.log(err);
                 return next(err);
             }
             if(album==null) {
+                res.status(400);
                 return next();
             }
-            album.images.push({
+            var image = {
                 url: req.file.filename,
                 mimeType: req.file.mimetype
-            });
+            };
+            if(typeof album.images === "undefined") {
+                album.images = [{
+                    image
+                }]
+            } else {
+                album.images.push(image);
+            }
             album.save();
             res.redirect("/album/"+req.params.albumId);            
         });

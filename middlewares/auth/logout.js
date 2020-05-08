@@ -5,6 +5,6 @@
 module.exports = function (objectrepository) {
     return function (req, res, next) {
         res.cookie('authenticatedUser', "null");
-        return next();
+        res.redirect("/");
     };
 };

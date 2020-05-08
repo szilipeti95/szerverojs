@@ -27,7 +27,7 @@
 </div>
 <% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
   <div id="uploadModal" class="modal">
-      <%- include('uploadImage', {albumId: album._id}) -%>
+      <%- include('uploadImage', {albumId: album.id}) -%>
     </div>
   </div>
 <% } %>
