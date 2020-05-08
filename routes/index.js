@@ -123,6 +123,7 @@ module.exports = function (app) {
     authMW(objectRepository),
     getAlbumMW(objectRepository),
     getImagesInAlbumMW(objectRepository),
+    getUserMW(objectRepository),
     renderMW(objectRepository, 'album')
   );
 

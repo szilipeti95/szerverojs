@@ -7,6 +7,9 @@ module.exports = function (objectrepository) {
     const UserModel = requireOption(objectrepository, 'UserModel');
 
     return function (req, res, next) {
+        if (req.authenticatedUser == "guest") {
+            return next();
+        }
         UserModel.findOne({ _id: req.authenticatedUser }, (err, user) => {
             if (err) {
                 console.log(err);

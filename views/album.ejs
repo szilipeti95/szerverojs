@@ -4,7 +4,9 @@
 
 <div class="title">
   <h1> Album name </h1>
-  <img id="uploadButton" src="../add_button.png", alt="" />
+  <% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
+    <img id="uploadButton" src="../add_button.png", alt="" />
+  <% } %>
 </div>
 
 <div class="grid-view">
@@ -12,10 +14,10 @@
     <%- include('itemView', {image: image}); -%>
   <% }); %>
 </div>
-<div id="uploadModal" class="modal">
-  <div class="modal-content">
-    <%- include('uploadImage', {albumId: album._id}) -%>
+<% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
+  <div id="uploadModal" class="modal">
+      <%- include('uploadImage', {albumId: album._id}) -%>
+    </div>
   </div>
-</div>
-
+<% } %>
 <%- include('footer') -%>
