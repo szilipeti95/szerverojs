@@ -116,6 +116,18 @@ module.exports = function (app) {
     editPasswordMW(objectRepository)
   )
 
+  app.put(
+    '/edit/album/:albumId',
+    authMW(objectRepository),
+    editAlbumMW(objectRepository)
+  )
+
+  app.delete(
+    '/edit/deleteAlbum/:albumId',
+    authMW(objectRepository),
+    deleteAlbumMW(objectRepository)  
+  )
+
   app.get(
     '/album/:albumId',
     authMW(objectRepository),

@@ -22,9 +22,23 @@ $( document ).ready(function() {
         }
     })
 
-    $ (".rounded-button").click(function() {
+    $ (".destroy-action").click(function() {
         if ($(this)[0].hasAttribute("ref") ) {
-            document.location.href = $(this).attr("ref");
+            $.ajax({
+                url: $(this).attr("ref"),
+                type: 'DELETE',
+                success: function() {
+                    document.location.href="/main";
+                }
+            });        
+        }
+    })
+
+    $ (".rounded-button").click(function() {
+        if (!$(this).hasClass('destroy-action')) {
+            if ($(this)[0].hasAttribute("ref") ) {
+                document.location.href = $(this).attr("ref");
+            }
         }
     })
 });

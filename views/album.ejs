@@ -2,6 +2,17 @@
 
 <%- include('userHeader', { show_edit: false, username: album.author, like_count: album.likeCount } ) -%>
 
+<% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
+  <div class="button-container">
+    <div class="rounded-button" ref="/edit/album">
+      Edit Album
+    </div>
+    <div class="destroy-action rounded-button" ref="/edit/deleteAlbum/<%= album.id %>">
+      Delete Album
+    </div>
+  </div>
+<% } %>
+
 <div class="title">
   <h1> Album name </h1>
   <% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
