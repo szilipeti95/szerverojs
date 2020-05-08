@@ -98,12 +98,19 @@ module.exports = function (app) {
     renderMW(objectRepository, 'userEdit')
   );
 
-  app.use(
+  app.get(
     '/user',
     authMW(objectRepository),
+    getUserMW(objectRepository),
     getOwnAlbumsMW(objectRepository),
     renderMW(objectRepository, 'user')
   );
+
+  app.post(
+    '/user/edit',
+    authMW(objectRepository),
+    editUserMW(objectRepository)
+  )
 
   app.get(
     '/album/:albumId',

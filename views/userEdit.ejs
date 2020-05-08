@@ -2,7 +2,7 @@
 
 <%- include('userHeader', { show_edit: false, username: currentUser.username, like_count: currentUser._likedAlbum.length } ) -%>
 
-<form name="" method="post">
+<form name="" method="post" action="/user/edit">
   <div class="input-container">
     <input type="text" name="email" required="" value="<%= currentUser.email %>"/>
     <label> Email </label>
