@@ -20,8 +20,7 @@ module.exports = function (objectrepository) {
                 mimeType: req.file.mimetype
             });
             album.save();
-            res.redirect("/album/"+req.params.albumId);
-            next();
+            res.redirect("/album/"+req.params.albumId);            
         });
     };
 };

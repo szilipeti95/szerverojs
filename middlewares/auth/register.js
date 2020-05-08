@@ -19,8 +19,7 @@ module.exports = function (objectrepository) {
                     newUser.save(function (err, returnedUser) {
                         console.log(newUser._id);
                         res.cookie('authenticatedUser', String(returnedUser._id));
-                        res.redirect("/");
-                        return next();
+                        res.redirect("/");                        
                     });
                 } else {
                     res.statusCode = 400;
