@@ -108,6 +108,7 @@ module.exports = function (app) {
   app.get(
     '/album/:albumId',
     authMW(objectRepository),
+    getAlbumMW(objectRepository),
     getImagesInAlbumMW(objectRepository),
     renderMW(objectRepository, 'album')
   );

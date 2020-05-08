@@ -1,6 +1,6 @@
 <%- include('layout') -%>
 
-<%- include('userHeader', { show_edit: false, username: "Teszt user", like_count: 30 } ) -%>
+<%- include('userHeader', { show_edit: false, username: album.author, like_count: album.likeCount } ) -%>
 
 <div class="title">
   <h1> Album name </h1>
@@ -14,7 +14,7 @@
 </div>
 <div id="uploadModal" class="modal">
   <div class="modal-content">
-    <%- include('uploadImage', {albumId: albumId}) -%>
+    <%- include('uploadImage', {albumId: album._id}) -%>
   </div>
 </div>
 
