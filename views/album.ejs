@@ -4,7 +4,7 @@
 
 <% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
   <div class="button-container">
-    <div class="rounded-button" ref="/edit/album">
+    <div class="rounded-button" ref="/album_edit/<%= album.id %>">
       Edit Album
     </div>
     <div class="destroy-action rounded-button" ref="/edit/deleteAlbum/<%= album.id %>">
@@ -14,7 +14,7 @@
 <% } %>
 
 <div class="title">
-  <h1> Album name </h1>
+  <h1> <%= album.name %> </h1>
   <% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
     <img id="uploadButton" src="../add_button.png", alt="" />
   <% } %>

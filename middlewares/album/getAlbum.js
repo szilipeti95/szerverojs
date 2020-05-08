@@ -14,7 +14,7 @@ module.exports = function (objectrepository) {
                 console.log(err);
                 return next(err);
             }
-            if (albumResult.authenticatedUser == authenticatedUser || albumResult.public) {
+            if (albumResult._author._id == authenticatedUser || albumResult.public) {
                 var isLiked = false;
                 var likeCount = 0;
                 var thumbnailUri = null;

@@ -9,23 +9,25 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         AlbumModel.findOne({ _id: req.params.albumId }, (error, existingAlbum) => {            
             if (error) {
-                return next(userExistsError);
+                console.log(error);
+                return next(error);
             }
-            if (existingAlbum != null && existingAlbum._author._id != req.authenticatedUser) {
+            if (existingAlbum == null || existingAlbum._author._id != req.authenticatedUser) {
                 res.status(400);
                 return next();
             }
-            album.name = req.body.albumname;
-            album.tags = req.body.tags;
-            album.public = req.body.public;
+            existingAlbum.name = req.body.albumname;
+            existingAlbum.tags = req.body.tags;
+            existingAlbum.public = true;
+            
+            console.log(existingAlbum);
 
-            album.save(function(err) {
+            existingAlbum.save(function(err) {
                 if(err) {
                     console.log(err);
                 }
+                res.redirect("/album_edit/"+req.params.albumId);
             });
-            
-            //redirect!!!!
         });
     };
 };
