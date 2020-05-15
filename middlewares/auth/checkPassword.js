@@ -14,8 +14,10 @@ module.exports = function (objectrepository) {
                 console.log(err);
                 return next(err);
             }
-            console.log(user);
-            res.cookie('authenticatedUser', String(user._id));
+            if (user != null) {
+                console.log(user);
+                res.cookie('authenticatedUser', String(user._id));
+            }
             return next();
         });
     };
