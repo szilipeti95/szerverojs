@@ -1,6 +1,6 @@
 <%- include('layout') -%>
 
-<%- include('userHeader', { show_edit: true, username: "Teszt user", like_count: 30 } ) -%>
+<%- include('userHeader', { show_edit: true, username: currentUser.username, like_count: currentUser._likedAlbum.length } ) -%>
 
 <div class="title">
   <h1> Your Albums </h1>

@@ -1,0 +1,19 @@
+<%- include('layout') -%>
+
+<%- include('userHeader', { show_edit: false, username: currentUser.username, like_count: currentUser._likedAlbum.length } ) -%>
+
+<form name="" method="post" action="/edit/album/<%=album.id%>">
+  <div class="input-container">
+    <input type="text" name="albumname" required="" value="<%= album.name %>"/>
+    <label> Name </label>
+  </div>
+  <div class="input-container">
+    <input type="text" name="tags" required="" value="<%= album.tags.join(' ') %>"/>
+    <label> Tags </label>
+  </div>
+  <div>
+    <input class="input-button" type="submit" value="Edit" />
+  </div>
+</form>
+
+<%- include('footer') -%>

@@ -6,12 +6,12 @@
     height: 50px;
     background: none;
     cursor: pointer;
-    transition: background 0.5s ease;
-    z-index: 10;
+    transition: background 0.2s ease;
+    z-index: 100;
 }
 .heart:before,
 .heart:after {
-	transition: background 0.5s ease;
+	transition: background 0.2s ease;
   position: absolute;
   content: "";
   right: 10px;
@@ -35,5 +35,5 @@
   position: relative;
 	background: none;
 	cursor: pointer;
-	transition: background 0.5s ease;
+	transition: background 0.2s ease;
 }

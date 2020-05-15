@@ -1,10 +1,23 @@
 <%- include('layout') -%>
 
-<%- include('userHeader', { show_edit: false, username: "Teszt user", like_count: 30 } ) -%>
+<%- include('userHeader', { show_edit: false, username: album.author, like_count: album.likeCount } ) -%>
+
+<% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
+  <div class="button-container">
+    <div class="rounded-button" ref="/album_edit/<%= album.id %>">
+      Edit Album
+    </div>
+    <div class="destroy-action rounded-button" ref="/edit/deleteAlbum/<%= album.id %>">
+      Delete Album
+    </div>
+  </div>
+<% } %>
 
 <div class="title">
-  <h1> Album name </h1>
-  <img id="uploadButton" src="../add_button.png", alt="" />
+  <h1> <%= album.name %> </h1>
+  <% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
+    <img id="uploadButton" src="../add_button.png", alt="" />
+  <% } %>
 </div>
 
 <div class="grid-view">
@@ -12,10 +25,10 @@
     <%- include('itemView', {image: image}); -%>
   <% }); %>
 </div>
-<div id="uploadModal" class="modal">
-  <div class="modal-content">
-    <%- include('uploadImage') -%>
+<% if(typeof currentUser !== "undefined" && currentUser.username == album.author) { %>
+  <div id="uploadModal" class="modal">
+      <%- include('uploadImage', {albumId: album.id}) -%>
+    </div>
   </div>
-</div>
-
+<% } %>
 <%- include('footer') -%>

@@ -11,9 +11,16 @@ const Album = db.model('Album', {
       ref: 'User',
       required: true
     },
+    _likes: {
+      type: [Schema.Types.ObjectId],
+      ref: 'User'
+    },
     creationDate: Number,
     public: Boolean,
-    images: [String],
+    images: [{ 
+      url: String,
+      mimeType: String
+     }],
     tags: [String]
   })
 
